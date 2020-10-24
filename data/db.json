@@ -1,0 +1,15 @@
+{
+  "ids": {
+    "Exams": 4
+  },
+  "models": {
+    "Exams": {
+      "1": "{\"subject\":\"Applied Mechanics\",\"course\":\"B.Tech\",\"semester\":\"2\",\"marks\":200,\"duration\":\"3 hours\",\"date\":\"16-10-2020\",\"examTime\":\"10:00 AM\",\"checkInTime\":\"09:30 AM\",\"id\":1}",
+      "2": "{\"subject\":\"Engineering Physics\",\"course\":\"B.Tech\",\"semester\":\"1\",\"marks\":200,\"duration\":\"3 hours\",\"date\":\"17-10-2020\",\"examTime\":\"10:00 AM\",\"checkInTime\":\"09:30 AM\",\"id\":2}",
+      "3": "{\"subject\":\"Data Structures\",\"course\":\"B.Tech\",\"semester\":\"4\",\"marks\":150,\"duration\":\"2 hours\",\"date\":\"16-10-2020\",\"examTime\":\"02:00 PM\",\"checkInTime\":\"01:30 PM\",\"id\":3}"
+      
+
+    }
+    
+  }
+}

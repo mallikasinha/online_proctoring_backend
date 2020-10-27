@@ -1,6 +1,6 @@
 import {Entity, model, property} from '@loopback/repository';
 
-@model()
+@model({settings: {strict: false}})
 export class Exams extends Entity {
   @property({
     type: 'number',
@@ -17,8 +17,9 @@ export class Exams extends Entity {
 
   @property({
     type: 'string',
+    required: true,
   })
-  course?: string;
+  course: string;
 
   @property({
     type: 'string',
@@ -33,29 +34,34 @@ export class Exams extends Entity {
   marks: number;
 
   @property({
-    type: 'string',
+    type: 'date',
     required: true,
   })
-  duration: string;
+  startTime: string;
 
   @property({
-    type: 'string',
+    type: 'date',
     required: true,
   })
-  date: string;
+  endTime: string;
 
   @property({
-    type: 'string',
-    required: true,
-  })
-  examTime: string;
-
-  @property({
-    type: 'string',
+    type: 'date',
     required: true,
   })
   checkInTime: string;
 
+  @property({
+    type: 'boolean',
+    required: true,
+  })
+  cancelled: boolean;
+
+  // Define well-known properties here
+
+  // Indexer property to allow additional data
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [prop: string]: any;
 
   constructor(data?: Partial<Exams>) {
     super(data);

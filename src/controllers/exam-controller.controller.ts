@@ -64,6 +64,7 @@ export class ExamControllerController {
   }
 
   @get('/exams', {
+
     responses: {
       '200': {
         description: 'Array of Exams model instances',

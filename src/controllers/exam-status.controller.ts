@@ -11,9 +11,7 @@ import {
   put,
   del,
   requestBody,
-  Request,
-  RestBindings,
-  RequestBodyParser
+  Request
 } from '@loopback/rest';
 
 
@@ -45,9 +43,13 @@ export class ExamStatusController {
             type: 'object',
             title: 'ExamEndResponse',
               properties: {
+                examId:{type: 'integer'},
+                proctorId:{type: 'integer'},
+                cancelledTime:{type:'string'},
                 cancel: {type: 'boolean'},
-                cancelForStudent: {type: 'array'},
-                reason:{type:'string'}
+                studentIds: {type: 'array'},
+                reason:{type:'string'},
+
           },
         },
         },

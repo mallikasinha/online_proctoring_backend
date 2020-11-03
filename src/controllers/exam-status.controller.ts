@@ -67,7 +67,7 @@ export class ExamStatusController {
       statusMsg = "exam has been cancelled for all"
     }
     else if (cancelForStudent.length < 5) {
-      statusMsg = "exam has been cancelled for " + cancelForStudent.join();
+      statusMsg = "exam has been cancelled for student id" + cancelForStudent.join();
     }
 
     else {

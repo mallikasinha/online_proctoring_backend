@@ -61,12 +61,18 @@ export class ExamStatusController {
     let statusMsg = "failed";
     let requestParam = JSON.parse(JSON.stringify(request))
     const cancelForStudent = requestParam.studentIds
+    console.log("student id" + cancelForStudent)
     if (cancelForStudent.length == 5) {
 
       statusMsg = "exam has been cancelled for all"
     }
-    else {
+    else if (cancelForStudent.length < 5) {
       statusMsg = "exam has been cancelled for " + cancelForStudent.join();
+    }
+
+    else {
+      statusMsg = "invalid number of students"
+
     }
     return {
       "status": statusMsg

@@ -4,14 +4,14 @@
 
 import {
   post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  Request
+
+
+
+
+
+
+
+  Request, requestBody
 } from '@loopback/rest';
 
 
@@ -22,16 +22,16 @@ export class ExamStatusController {
       '200': {
         description: 'Exam Status Response',
         content: {
-            'application/json': {
-        schema: {
-          type: 'object',
-          title: 'ExamEndResponse',
-            properties: {
-              status: {type: 'string'},
+          'application/json': {
+            schema: {
+              type: 'object',
+              title: 'ExamEndResponse',
+              properties: {
+                status: {type: 'string'},
+              },
+            },
+          },
         },
-      },
-    },
-  },
       },
     },
   })
@@ -42,36 +42,36 @@ export class ExamStatusController {
           schema: {
             type: 'object',
             title: 'ExamEndResponse',
-              properties: {
-                examId:{type: 'integer'},
-                proctorId:{type: 'integer'},
-                cancelledTime:{type:'string'},
-                cancel: {type: 'boolean'},
-                studentIds: {type: 'array'},
-                reason:{type:'string'},
+            properties: {
+              examId: {type: 'integer'},
+              proctorId: {type: 'integer'},
+              cancelledTime: {type: 'string'},
+              cancel: {type: 'boolean'},
+              studentIds: {type: 'array'},
+              reason: {type: 'string'},
 
+            },
           },
-        },
         },
       },
     })
-     request: Request,
-  
-  ): Promise<object> {
-     let statusMsg = "failed";
-     let requestParam = JSON.parse(JSON.stringify(request))
-     const cancelForStudent = requestParam.cancelForStudent
-     if(cancelForStudent.length < 1){
+    request: Request,
 
-      statusMsg= "exam has been cancelled for all"
+  ): Promise<object> {
+    let statusMsg = "failed";
+    let requestParam = JSON.parse(JSON.stringify(request))
+    const cancelForStudent = requestParam.studentIds
+    if (cancelForStudent.length == 5) {
+
+      statusMsg = "exam has been cancelled for all"
     }
     else {
-      statusMsg= "exam has been cancelled for " + cancelForStudent.join();
+      statusMsg = "exam has been cancelled for " + cancelForStudent.join();
     }
     return {
-        "status": statusMsg
+      "status": statusMsg
 
     };
-  
-}
+
+  }
 }
